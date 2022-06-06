@@ -1,19 +1,25 @@
 <template>
-  <HeadVue/>
-  <router-view/>
+
+<HeaderBar/>
+<router-view/>
+
+  
+
 </template>
 <script>
-import HeadVue from './components/HeadVue.vue'
+
+import HeaderBar from './components/HeaderBar.vue'
+
+
+
 
 
 
 
 export default {
-    data() {
-    },
-    components: 
-    HeadVue,
     
+    components: { HeaderBar}
+
 }
 </script>
 

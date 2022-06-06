@@ -1,14 +1,14 @@
 <template>
    <header class="header">
-                <a href="" class="header__logo">
+                <a href="/" class="header__logo">
                     <img src="../assets/logo.png" alt="logo">
                 </a>
                 <nav class="header__menu">
-                    <a href="">О компании</a>
-                    <a href="">Техника</a>
-                    <a href="">Сервис</a>
-                    <a href="">Запчасти</a>
-                    <a href="">Контакты</a>
+                    <a href="/about">О компании</a>
+                    <a href="/techical">Техника</a>
+                    <a href="/service">Сервис</a>
+                    <a href="/parts">Запчасти</a>
+                    <a href="/contacts">Контакты</a>
                 </nav>
                 <div class="header__button">
                     <a href="" class="btn">Войти</a>
@@ -18,10 +18,10 @@
 
 <script>
 export default {
-  name: 'HeadVue',
+  name: 'HeaderBar',
   props: {
     msg: String
-  }
+  },
 }
 </script>
 
@@ -34,6 +34,7 @@ export default {
     align-items: center;
     padding: 24px 0;
 }
+
 .header__logo {
     margin-right: 140px;
 }
@@ -47,9 +48,14 @@ export default {
     font-weight: 400;
     font-size: 24px;
     color:rgb(191, 41, 41);
+    
+}
+a {
+    text-decoration: none;
 }
 .header__menu a:hover {
     color:rgb(157, 18, 18);
+    text-decoration: underline;
 }
 .header__button {
     margin-left: auto;

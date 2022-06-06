@@ -1,15 +1,18 @@
 <template>
-  <div></div>
+  <div>HomeView</div>
 </template>
 
 <script>
-// @ is an alias to /src
 
 
 export default {
   name: 'HomeView',
-  components: {
-   
-  }
+  props: {
+    msg: String
+  },
+  
 }
 </script>
+<style scoped>
+
+</style>
