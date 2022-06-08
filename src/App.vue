@@ -1,7 +1,10 @@
 <template>
-
-<HeaderBar/>
-<router-view/>
+    
+    <HeaderBar/>
+    <VpopupShow hidden/>
+    <router-view/>
+   
+    <FooterBar/>
 
   
 
@@ -9,6 +12,8 @@
 <script>
 
 import HeaderBar from './components/HeaderBar.vue'
+import FooterBar from './components/FooterBar.vue'
+import VpopupShow from './views/VpopupShow.vue'
 
 
 
@@ -18,11 +23,14 @@ import HeaderBar from './components/HeaderBar.vue'
 
 export default {
     
-    components: { HeaderBar}
+    components: { HeaderBar, FooterBar,VpopupShow}
 
 }
 </script>
 
 <style>
-
+*{
+    margin: 0;
+    padding: 0;
+}
 </style>

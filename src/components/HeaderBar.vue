@@ -11,12 +11,14 @@
                     <a href="/contacts">Контакты</a>
                 </nav>
                 <div class="header__button">
-                    <a href="" class="btn">Войти</a>
+                    <button class="button" @click="showPopup">Заказать звонок</button>
                 </div>   
             </header>
 </template>
 
 <script>
+
+
 export default {
   name: 'HeaderBar',
   props: {
@@ -60,7 +62,7 @@ a {
 .header__button {
     margin-left: auto;
 }
-.btn {
+.button {
     display: inline-block;
     width: 225px;
     background-color: rgb(191, 41, 41);

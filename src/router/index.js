@@ -5,6 +5,7 @@ import ContactsView from '../views/ContactsView.vue'
 import PartsView from '../views/PartsView.vue'
 import ServiceView from '../views/ServiceView.vue'
 import TechicalView from '../views/TechicalView.vue'
+import VpopupShow from '../views/VpopupShow.vue'
 const routes = [
   {
     path: '/',
@@ -41,6 +42,11 @@ const routes = [
     component: TechicalView
    
   },
+  {
+    path: '/popup',
+    name: 'vpopup',
+    component: VpopupShow
+  }
  
 ]
 
