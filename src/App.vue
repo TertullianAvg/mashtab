@@ -1,7 +1,7 @@
 <template>
     
     <HeaderBar/>
-    <VpopupShow hidden/>
+    <VpopupShow v-if="isVisible"/>
     <router-view/>
    
     <FooterBar/>
@@ -23,7 +23,22 @@ import VpopupShow from './views/VpopupShow.vue'
 
 export default {
     
-    components: { HeaderBar, FooterBar,VpopupShow}
+    components: { HeaderBar, FooterBar,VpopupShow},
+     data() {
+       return {
+           isVisible: false
+       };
+   },
+   
+    methods: {
+        showPopup() {
+            this.isVisible = true;
+        },
+        closePopup() {
+            this.isVisible = false;
+        }
+    }
+
 
 }
 </script>
@@ -32,5 +47,6 @@ export default {
 *{
     margin: 0;
     padding: 0;
+    
 }
 </style>

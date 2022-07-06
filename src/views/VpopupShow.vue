@@ -1,94 +1,49 @@
 <template>
-    <div class="popup_wrapper" ref="popup_wrapper">
-        <div class="v-popup">
-            <div class="v-popup_header">Заказать звонок</div>
-            <div class="v-popup_content">
-                <div class="container">
-                    <label>Имя*</label><br />
-                    <input v-model="Name" type="name" placeholder="Имя"/><br />
-
-                    <label>Телефон*</label><br />
-                    <input v-model="phone" name="phone" type="tel" placeholder="+7(___)___-__-__"
-                        pattern="\(\d{3}\) \d{3}-\d{2}-\d{2}" required>
-                       <br />
-
-                    <label>Email*</label><br />
-                    <input v-model="email" type="email" placeholder="example@gmail.com" /><br />
+  <div class="wrapper" ref="wrapper">
+    <div class="container">
+            
+            <div class="request__row">
+                <div class="request__left">
+                 
+                  <h2 class="header-block__title">Оставить заявку на обслуживание</h2>
+                  
+                  
+                    <form action="../components/mail/send.php" class="request__form" method="POST">
+                        <input name="name" type="text" class="input-text input-text_request" placeholder="Имя">
+                        <input name="phone" type="text" class="input-text input-text_request" placeholder="Телефон">
+                        <input name="email" type="text" class="input-text input-text_request" placeholder="email">
+                        <textarea name="text"  class="textarea" placeholder="Напишите, что вас интересует?"></textarea>
+                        <p class="input-text_request input-text_request_text">Нажимая на кнопку, я подтверждаю свое согласие на обработку введенных персональных данных</p>
+                        <div class="request__button">
+                           <button class="button" @click="closePopup">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="request__right">
+                    <p class="text">Наши менеджеры свяжутся с вами в ближайшее время</p>
+                    <p class="text">Также вы можете связаться с нами по тел.  <a href="tel:89600001234" class="phone"> 8 960 000 12 34</a></p>
                 </div>
             </div>
-            <div class="v-popup_footer">
-                <button type="submit" class="post">Отправить</button>
-            </div>
         </div>
-    </div>
+ 
+  </div>
 </template>
 
 <script>
-
-
 export default {
-   
- name: 'VpopupShow',
-  props: {
-    msg: String
-  },
-  path: 'popup',
-   
-  // data () {
-    // Name = '',
-     //phone = '',
-    // email = '',
-   //  popup [ Name, phone, email]
-        
-   // },
-
-
+methods:{
+ closePopup() {
+            this.isVisible = false;
 }
-    
+}
+}
 
 </script>
 
 <style scoped>
-.v-popup {
-    position: absolute;
-    background-color: #fff;
-    width: 793px;
-    height: 216px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 8px;
-    box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0px 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
 
-.v-popup_header {
-    background: #fff;
-    margin: 24px;
-
-    font-family: "Inter", sans-serif;
-    font-size: 24px;
-    line-height: 100%;
-    color: #111827;
-}
-
-.v-popup_content {
-    display: block;
-    flex-direction: row;
-    background: #fff;
-}
-
-.v-popup_footer {
-    display: flex;
-    justify-content: end;
-    margin-top: 18px;
-    margin-right: 27px;
-    margin-bottom: 27px;
-    background: #fff;
-}
-
-.popup_wrapper {
-    position: absolute;
+.wrapper {
+  position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,38 +51,173 @@ export default {
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(107, 114, 128, 0.75);
+    background: rgba(23, 23, 24, 0.897);
+    z-index: 1  ;
+    height: 100%;
+    width: 100%;
+  
 }
-
-.main_container {
+.header-block__title {
+  margin-bottom: 40px;
+}
+.form {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.post {
-    width: 170px;
-    height: 38px;
-    background: #16a34a;
-    /* shadow/sm */
-
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 6px;
-    color: #fff;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
+.input-text {
+    border: 1px solid rgb(157, 18, 18);
+    border-radius: 6px; 
+    color: #453B47;
     font-size: 16px;
     line-height: 100%;
+    font-weight: 300;
+    padding: 18px;
+    box-sizing: border-box;
 }
-.post:hover{
-    background: #fff;
-    color:#16a34a;
+.form .input-text {
+    width: 100%;
+    margin-right:  24px;
+    box-sizing: border-box;
+    max-width: 270px;
 }
-
-label {
-    background-color: #fff;
+.request__row {
+    display: flex;
+    background: rgb(255, 253, 253);
+    padding: 20px;
+    border-radius: 6px;
 }
-
-input {
-    background-color: #fff;
+.request__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.input-text_request:not(:last-child) {
+    margin-bottom: 24px;
+}
+.input-text_request_text {
+    max-width: 492px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 120%;
+}
+.request__right {
+  width: 50%;
+  margin-left: 40px;
+  
+    
+}
+.text {
+    font-size: 32px;
+    font-weight: 400;
+    max-width: 590px;
+    width: 100%;
+    color: #6c6c6c;
+    line-height: 140%;
+    margin-top: 40px;
+}
+.phone {
+    color: #343434;
+    font-weight: 500;
+} 
+.input-text_request_ta {
+    min-height: 160px;
+    height: 100%;
+}
+.textarea {
+    border: 1px solid rgb(157, 18, 18);
+    border-radius: 6px; 
+    color: #453B47;
+    font-size: 16px;
+    line-height: 100%;
+    padding: 20px;
+    height: 162px;
+    box-sizing: border-box;
+    font-family: inherit;
+    resize: none; 
+    margin-bottom: 24px;
+}
+.textarea::placeholder {
+    font-size: 16px;
+    
+}
+.button {
+    display: inline-block;
+    width: 225px;
+    background-color: rgb(191, 41, 41);
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #fff;
+    border-radius: 8px;
+}
+.button:hover {
+    background-color:rgb(157, 18, 18);
+    box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+}
+.request__button .button {
+    max-width: 300px;
+    width: 100%;
+    
+}
+.request__button .btn:hover {
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+.cl-btn-6 {
+    position: relative;
+    margin: 20px auto;
+    width: 70px;
+    cursor: pointer;
+}
+.cl-btn-6-in {
+    width: inherit;
+    text-align: center;
+}
+.cl-btn-6-txt { 
+    font-size: 13px; 
+    line-height: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #337AB7;
+    transition: all .3s ease-in;
+    opacity: 0;
+    cursor: pointer;
+    font-family: Verdana;
+}
+.cl-btn-6-in:before, .cl-btn-6-in:after {
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: inherit;
+    background: #337AB7;
+    left: 0;
+    transition: all .3s ease-in;
+}
+.cl-btn-6-in:before {
+    top: calc(50% - 4px); 
+    transform: rotate(45deg);  
+}
+.cl-btn-6-in:after {  
+    bottom: 50%;
+    transform: rotate(-45deg);  
+}
+.cl-btn-6:hover .cl-btn-6-txt {
+    opacity: 1;
+}
+.cl-btn-6:hover .cl-btn-6-in:before,
+.cl-btn-6:hover .cl-btn-6-in:after {
+    transform: rotate(0);
+}
+.cl-btn-6:hover .cl-btn-6-in:before {
+    top: 0;
+}
+.cl-btn-6:hover .cl-btn-6-in:after {
+    bottom: 0;
+}
+.head_container {
+  display: flex;
 }
 </style>
